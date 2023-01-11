@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Tour Demo</title>
+    <style>
+    .highlight {
+        border: 3px solid yellow;
+    }
+    .step-text {
+        position: absolute;
+        background-color: white;
+        padding: 10px;
+        border: 2px solid #333333;
+    }
+    .next-btn {
+        display: none;
+    }
+    .prev-btn {
+        display: none;
+    }
+    .skip-btn {
+        display: none;
+    }
+    .close-btn {
+        display: none;
+    }
+    .tour-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tour-element {
+    width: 25%;
+    padding: 1em;
+    text-align: center;
+}
+.nav-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+}
+.highlight {
+    border: 3px solid yellow;
+    box-shadow: 0 0 5px #333333;
+}
+.step-text {
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid #333333;
+    animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@media (max-width: 800px) {
+    .tour-element {
+        width: 50%;
+    }
+    .nav-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 400px) {
+    .tour-element {
+        width: 100%;
+    }
+    .nav-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="tour-container">
+        <div id="step1" class="tour-element">This is the first element of the tour</div>
+        <div id="step2" class="tour-element">This is the second element of the tour</div>
+        <div id="step3" class="tour-element">This is the third element of the tour</div>
+      </div>
+      
+      <div class="nav-container">
+        <button onclick="startTour()">Start Tour</button>
+        <button onclick="prevStep()">Back</button>
+        <button onclick="nextStep()">Next</button>
+        <button onclick="skipTour()">Skip</button>
+        <button onclick="endTour()">Close</button>
+      </div>
+      
+    <script src="product-tour.js"></script>
+  </body>
+</html>

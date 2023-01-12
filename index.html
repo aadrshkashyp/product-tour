@@ -3,6 +3,11 @@
   <head>
     <title>Product Tour Demo</title>
     <style>
+
+.container {
+  max-width: 1440px;
+}
+
     .highlight {
         border: 3px solid yellow;
     }
@@ -14,6 +19,7 @@
     }
     .next-btn {
         display: none;
+        
     }
     .prev-btn {
         display: none;
@@ -30,15 +36,13 @@
     justify-content: center;
 }
 
-.tour-element {
-    width: 25%;
-    padding: 1em;
-    text-align: center;
-}
+
 .nav-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+
+    
 }
 .highlight {
     border: 3px solid yellow;
@@ -57,40 +61,108 @@
     to   { opacity: 1; }
 }
 @media (max-width: 800px) {
-    .tour-element {
-        width: 50%;
-    }
     .nav-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 400px) {
-    .tour-element {
-        width: 100%;
-    }
     .nav-container {
         grid-template-columns: repeat(1, 1fr);
     }
 }
 
+button {
+    padding: 10px;
+    margin: 5px;
+}
+
 
     </style>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/[email protected]/dist/js/bootstrap.min.js" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"></script>
+
   </head>
   <body>
-    <div class="tour-container">
-        <div id="step1" class="tour-element">This is the first element of the tour</div>
-        <div id="step2" class="tour-element">This is the second element of the tour</div>
-        <div id="step3" class="tour-element">This is the third element of the tour</div>
-      </div>
+    <header>
+        <!-- As a heading -->
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Product Tour</span>
+  </nav>
+    </header>
+    <div class="container">
+    <div>
+        <div class="row">
+            <div class="col-12">
+                <div id="step1" class="tour-section">
+                  <!-- Hero -->
+<div class="p-5 text-center bg-image rounded-3" style="
+background-image: url('https://picsum.photos/1280/720');
+height: 400px;
+">
+<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+<div class="d-flex justify-content-center align-items-center h-100">
+  <div class="text-white">
+    <h1 class="mb-3">Heading</h1>
+    <h4 class="mb-3">Subheading</h4>
+    <a class="btn btn-outline-light btn-lg" href="#!" role="button">Call to action</a>
+  </div>
+</div>
+</div>
+</div>
+<!-- Hero -->
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-12">
+                <div id="step2" class="tour-section">
+                    <div class="card">
+                        <h5 class="card-header">Featured</h5>
+                        <div class="card-body">
+                          <h5 class="card-title">Special title treatment</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-12">
+                <div id="step3" class="tour-section">
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">I accept the terms and conditions </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
       
       <div class="nav-container">
-        <button onclick="startTour()">Start Tour</button>
-        <button onclick="prevStep()">Back</button>
-        <button onclick="nextStep()">Next</button>
-        <button onclick="skipTour()">Skip</button>
-        <button onclick="endTour()">Close</button>
-      </div>
+  <button class="start-btn" onclick="startTour()">Start Tour</button>
+  <button class="prev-btn" onclick="prevStep()">Back</button>
+  <button class="next-btn" onclick="nextStep()">Next</button>
+  <button class="skip-btn" onclick="skipTour()">Skip</button>
+  <button class="close-btn" onclick="endTour()">Close</button>
+</div>
+</div>
       
     <script src="product-tour.js"></script>
   </body>
